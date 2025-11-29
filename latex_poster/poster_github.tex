@@ -1,0 +1,394 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Jacobs Landscape Poster
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[final, hyperref={colorlinks,linkcolor=[RGB]{20,50,100},urlcolor=[RGB]{20,50,100}}]{beamer}
+
+\usepackage{float}
+\usepackage[size=a0,orientation=portrait,scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+
+\usetheme{confposter} % Use the confposter theme supplied with this template
+
+\usepackage{comment}
+
+\usepackage[absolute,overlay]{textpos} %use showboxes option for seeing where the boxes are put
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{adjustbox}
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\paperwidth}{841mm} 
+\setlength{\paperheight}{1189mm} 
+
+% 2-column layout:
+% 2*onecolwid + 3*sepwid = \paperwidth
+\setlength{\sepwid}{0.005\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.4925\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.99\paperwidth}    % Useful for full-width content (e.g. logo band)
+
+\usepackage{graphics}  % Required for including images
+\graphicspath{{poster_figures/}}
+\usepackage{mwe}       % For example-image-a/b/c placeholders
+\usepackage{lipsum}
+
+\usepackage{booktabs} % Top and bottom rules for tables
+\newcommand{\pl}{$\boldsymbol{+}$}
+\newcommand{\mi}{$\boldsymbol{-}$}
+
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\title{Preliminary validation of satellite chlorophyll-{a} products using inline data from the Ocean Training Course 2025 (OTC25)} % Poster title
+
+\author{\underline{Mathurin Choblet}$^{1}$, Sejal Pramlall$^{2}$, with support from the ESA OTC 2025 crew} % Author(s)
+
+%\institute{Contact: mathurin@choblet.com \\[0.3em] \normalsize{$^{1}$MAST, University of Liège, Belgium, $^{2}$Marine Optics Laboratory, University of Bergen, Norway.$ }}
+\institute{Contact: mathurin@choblet.com | \normalsize{$^{1}$MAST, University of Liège, Belgium; $^{2}$Marine Optics Laboratory, University of Bergen, Norway. }}
+
+%Department of Physics and Technology,
+
+%----------------------------------------------------------------------------------------
+% COLOR, BOX
+%----------------------------------------------------------------------------------------
+
+\usepackage[many]{tcolorbox}
+
+\tcbset{
+  colback=White,
+  arc=1mm,
+  fontupper=\sffamily\normalsize,
+  colframe=jblue,
+  halign title=center,
+  fonttitle=\bfseries\large\scshape,
+  boxrule=3pt,
+  after title=\vspace{8pt},
+  before title=\vspace{8pt},
+  before skip=-1cm
+}
+
+\newtcolorbox{InnerBox}[1][]{%
+    enforce breakable,
+    enhanced,
+    colback=lightgray,
+    colframe=white,
+    #1
+}%
+
+\setbeamercolor{block title}{fg=white, bg=jblue}
+\setbeamercolor{block body}{bg=white,fg=black}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+\large
+
+\vspace{-1cm}
+
+%----------------------------------------------------------------------------------------
+% MAIN TWO-COLUMN LAYOUT
+%----------------------------------------------------------------------------------------
+
+\begin{columns}[t]
+  \begin{column}{\sepwid}\end{column}
+
+  %========================
+  % LEFT COLUMN
+  %========================
+  \begin{column}{\onecolwid}
+
+  %\begin{tcolorbox}[adjusted title=0. Objectives]
+\begin{tcolorbox}[
+%  title={\raisebox{-0.3em}{\includegraphics[height=1.3em]{target_picto.png}} Objectives}
+title={\smash{\raisebox{-0.3em}{\includegraphics[height=1.3em]{target_picto_thick.png}}}\ Objectives}
+]
+
+
+
+\small
+%\begin{enumerate}
+\begin{itemize}
+  \setlength\itemsep{0.5em}
+  \item Characterize inline Chl-{a} variability along the Tromsø–Nice transect.
+  \item Evaluate global and regional L3 and L4 satellite Chl-{a} products against inline matchups.
+  \item Assess the added value of gap-filled and regional high-resolution OLCI products.
+  \item Lay the groundwork for future HPLC and fluorometric Chl-{a} calibration of the inline system.
+%\end{enumerate}
+\end{itemize}
+
+    \end{tcolorbox}
+     \vspace{1cm}
+    % 1. Cruise track & inline chl-a (big map figure)
+    %\begin{tcolorbox}[adjusted title= Statsraad Lehmkuhl Cruise track and Inline CHL-{a}]
+    \begin{tcolorbox}[
+%  title={\raisebox{-0.3em}{\includegraphics[height=1.3em]{target_picto.png}} Objectives}
+title={\smash{\raisebox{-0.3em}{\includegraphics[height=1.3em]{ship_picto2.png}}}\ Statsraad Lehmkuhl cruise track}
+]
+      \small
+      %\lipsum[1][1-4]
+
+      \begin{figure}
+        \centering
+        %\includegraphics[width=\textwidth,height=65cm]{example-image-a}
+        \includegraphics[width=\textwidth]{map_norwegian_poster.png}
+   
+        \includegraphics[width=\textwidth]{map_northatlantic_poster.png}
+        \includegraphics[width=\textwidth]{map_med_poster.png}
+        %\caption*{\small Placeholder for multi-panel map showing cruise track, inline chlorophyll-{a}, satellite coverage and CTD stations.}
+      \end{figure}
+    \end{tcolorbox}
+
+    \vspace{0.2cm}
+
+\vspace{0.5cm}
+\begin{tcolorbox}[
+title={\smash{\raisebox{-0.55em}{\includegraphics[height=1.5em]{acs_picto_white.png}}}\smash{\raisebox{-0.55em}{\includegraphics[height=1.5em]{ctd_picto_white.png}}}\smash{\raisebox{-0.5em}{\includegraphics[height=1.3em]{satellite_picto_thick.png}}}\ Data and matchup protocol \smash{\raisebox{-0.6em}{\includegraphics[height=1.7em]{puzzle_pictogram_thick.png}}}}
+]
+
+%\begin{tcolorbox}[adjusted title=2. Data and matchup protocol]
+\small
+\begin{columns}[T,totalwidth=\textwidth]
+  %---------------- LEFT: IN-SITU
+  \begin{column}{0.48\textwidth}
+      \vspace{1em}
+    \textbf{Inline AC-S}\\[-0.2em]
+    \begin{itemize}
+      \setlength\itemsep{0.2em}
+      \item WET Labs spectral inline absorption system
+      \item Chl-{a} line height from $a_{676}$ \footnotesize{(Boss et al. 2013)}
+      \item \small{Continuous underway sampling (at 2 m depth) along the cruise track}
+    \end{itemize}
+
+    \vspace{0.4em}
+    \textbf{Satellite Chl-{a} products (L3 and L4)}\\[-0.2em]
+    \begin{itemize}
+      \setlength\itemsep{0.2em}
+
+      \item Global, 4 km resolution:\\ PACE, MODIS-A, OC-CCI, GC-MY, GC-L4
+      \item Regional, 1 km resolution: \\ GC-ATL and GC-MED-L3
+      \item OLCI, 300 m resolution:\\ GC-OLCI, GC-MED-OLCI
+     % \item All products have daily resolution
+    \end{itemize}
+
+  \end{column}
+
+  %---------------- RIGHT: SATELLITE + MATCHUPS (MORE COMPACT)
+  \begin{column}{0.48\textwidth}
+      \vspace{1em}
+    \textbf{CTD Fluorometer}\\[-0.2em]
+    \begin{itemize}
+      \setlength\itemsep{0.2em}
+      \item SBE 19plus V2 with WET Labs ECO
+\item Dark and non-photochemical quenching correction applied \footnotesize{(Xing et al. 2012)}
+
+    \end{itemize}
+
+    \vspace{0.4em}
+    \textbf{Satellite-Inline Matchup}\\[-0.2em]
+    \begin{itemize}
+      \setlength\itemsep{0.2em}
+      %\item Time: inline data restricted to 10:00–14:00
+      \item Inline data restricted to 10:00–14:00 and bin-averaged to spatial satellite resolution
+      \item Satellite mean in a $3\times3$ box centered around the bin-averaged inline data point
+      \item Retain satellite value if the coefficient of variation is $<$ 0.15
+      %\item Quality Control: retain filtered mean if coefficient of variation $<$ 0.15
+      \item Procedure following Bailey \& Werdell 2006, Boss et al. 2013, Brewin et al. 2016
+     % \item Resulting matched dataset differs for each product
+    \end{itemize}
+  \end{column}
+\end{columns}
+
+    \end{tcolorbox} 
+  \end{column}
+
+  \begin{column}{\sepwid}\end{column}
+
+  %========================
+  % RIGHT COLUMN
+  %========================
+  \begin{column}{\onecolwid}
+
+
+    % 3. Key messages box (top-right, easy to skim) 
+    %\begin{tcolorbox}[adjusted title=3. Key results]
+
+\begin{tcolorbox}[
+title={\smash{\raisebox{-0.5em}{\includegraphics[height=1.5em]{lightbulb_thick.png}}}\ Key results}
+]
+
+      \small
+\begin{itemize}
+  \setlength\itemsep{0.4em}
+  \item Continuous underway AC-S sampling yields a rich matchup dataset with a large Chl-{a} dynamic range
+        and a clear pattern of higher values at high latitudes and near coasts.
+  \item All global satellite products show compressed Chl-{a} dynamic range and similar performance.
+        OC-CCI performs best overall; for this transect we see no notable gain from higher-resolution.
+  \item In the Mediterranean, global algorithms overestimate low Chl-{a}, while regional GC-MED products
+        substantially reduce this bias as reported in the literature (e.g. \footnotesize{Volpe et al. 2019}\small).
+  \item \small{CTD fluorescence yields systematically higher Chl-{a} relative to the inline system.}
+\end{itemize}
+
+    \end{tcolorbox}
+
+    \vspace{0.2cm}
+
+    % 4. Global product comparison
+    %\begin{tcolorbox}[adjusted title=4. Global product comparison]
+    \vspace{0.1cm}
+\begin{tcolorbox}[
+title={\smash{\raisebox{-0.5em}{\includegraphics[height=1.4em]{glob_picto_thick.png}}}\ Global product comparison}
+]
+
+      \small
+      %\lipsum[3][1-3]
+
+      \begin{figure}
+        \centering
+        %\includegraphics[width=40cm,height=25cm]{stats_global_poster.png}
+        \includegraphics[width=\textwidth]{stats_global_poster.png}
+        %\caption*{\small Placeholder for grid of scatter plots with inline statistics (N, $R^2$, RMSE, bias, slope).}
+      \end{figure}
+    \end{tcolorbox}
+
+    \vspace{0.2cm}
+
+    % 5. Regional performance (e.g. Mediterranean)
+    %\begin{tcolorbox}[adjusted title=5. Regional performance in the Mediterranean Sea]
+    \vspace{0.1cm}
+\begin{tcolorbox}[
+title={\smash{\raisebox{-0.5em}{\includegraphics[height=1.4em]{lookingglass_picto.png}}}\ Regional performance in the Mediterranean Sea}
+]
+      \small
+
+      \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{stats_med_sea_poster.png}
+        %\caption*{\small Placeholder for regional comparison figure (e.g.\ Mediterranean global vs regional products).}
+      \end{figure}
+    \end{tcolorbox}
+
+    \vspace{0.2cm}
+
+    % 6. CTD–inline comparison + Outlook + QR codes
+    %\begin{tcolorbox}[adjusted title=6. CTD--inline comparison and outlook]
+    
+\vspace{0.1cm}
+
+\begin{tcolorbox}[
+  title={\smash{\raisebox{-0.85em}{\includegraphics[height=2.2em]{telescop_picto.png}}}\ CTD--inline comparison and outlook}
+]
+  \small
+
+  \begin{columns}[T,totalwidth=\linewidth]
+
+    %----------------------------------------------------------
+    % LEFT COLUMN: two figures stacked
+    %----------------------------------------------------------
+    \begin{column}{0.4\linewidth}
+
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.74\linewidth]{ctd_vs_inline_poster.png}
+        %\caption*{\small Main CTD vs inline chlorophyll-a comparison.}
+      \end{figure}
+    \end{column}
+
+    %----------------------------------------------------------
+    % RIGHT COLUMN: bullets + two QR codes
+    %----------------------------------------------------------
+    \begin{column}{0.6\linewidth}
+      \small
+
+      \begin{itemize}
+        \setlength\itemsep{0.4em}
+        \item Calibrate the inline Chl-{a} record using discrete fluorometric and HPLC measurements.
+        \item Revisit the CTD–inline-satellite comparison after calibration.
+        \item Extend validation to lower-level products and make explicit use of quality flags.
+        \item Design more controlled inter-product comparisons (e.g.\ equal-$N$ matchups).
+        \item Consolidate the OTC25 dataset and code as an open benchmark for future OTC cohorts.
+      \end{itemize}
+
+      \vspace{0.3em}
+
+      % QR codes (appendix-like content, but within same box)
+
+   \begin{center}
+        \textbf{\underline{Supplements}}\quad
+        \begin{minipage}{0.23\linewidth}
+          \centering
+          \includegraphics[width=0.85\linewidth]{qr-code-drive}
+          \\[-0.2em]
+          \scriptsize Figures
+        \end{minipage}
+        \hspace{0.02\linewidth}
+        \begin{minipage}{0.23\linewidth}
+          \centering
+          \includegraphics[width=0.85\linewidth]{qrcode_github}
+          \\[-0.2em]
+          \scriptsize Code repository
+        \end{minipage}
+      \end{center}
+
+    \end{column}
+
+  \end{columns}
+\end{tcolorbox}
+
+  \end{column}
+
+  \begin{column}{\sepwid}\end{column}
+\end{columns}
+
+%----------------------------------------------------------------------------------------
+% LOGO BAND
+%----------------------------------------------------------------------------------------
+
+%\vspace{-0.3cm}
+\begin{beamercolorbox}[wd=35in,colsep=0.15cm]{cboxb}\end{beamercolorbox}
+
+\begin{columns}
+  \begin{column}{\sepwid}\end{column}
+
+  \begin{column}{\onecolwid}
+    \begin{figure}
+      \raggedright
+      % Replace example-image-* with actual logos (e.g. FNRS2, uliege, hereon, neccton)
+      \includegraphics[height=4.5cm]{FNRS2.png}
+      \hspace*{2cm}
+      \includegraphics[height=4.5cm]{uliege.png}
+      \hspace*{2cm}
+      \includegraphics[height=5cm]{oneocean.png}
+      \hspace*{1cm}
+\adjustbox{height=4.5cm,trim={0.15\width} {0.20\height} {0.15\width} {0.20\height},clip}{%
+  \includegraphics{ESA_logo_2020_Deep.png}%
+}
+    \end{figure}
+  \end{column}
+
+    \begin{column}{\onecolwid}
+    \small{
+      \textbf{Acknowledgments:} 
+This work was supported by ESA (contract 4000145069/24/NL/IB/ar). Travel and accommodation were funded by the FRS-FNRS (grant 1.E.007.25F). We thank ESA for organizing the course and providing an excellent learning environment, and the crew of the Statsraad Lehmkuhl for their professional management of the voyage.
+    }
+
+  \end{column}
+
+  \begin{column}{\sepwid}\end{column}
+\end{columns}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+% OLD / EXTRA MATERIAL (UNCHANGED, KEPT IN COMMENT)
+%----------------------------------------------------------------------------------------
+
+
+\end{document}
